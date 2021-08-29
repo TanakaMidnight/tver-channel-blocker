@@ -1,0 +1,16 @@
+{
+    "name": "TverChannelBlocker",
+    "version": "1.0.0",
+    "permissions": [
+        "storage",
+        "unlimitedStorage"
+      ],    
+    "manifest_version": 2,
+    "description": "Tverの特定の番組を非表示にするツールです。",
+    "content_scripts": [{
+      "matches": ["https://tver.jp/*"],
+      "js": [
+        "content.js"
+      ]
+    }]
+  }
