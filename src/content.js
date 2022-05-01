@@ -12,7 +12,7 @@ window.onload = function () {
       button.innerHTML = "[非表示]";
       button.style.color = "red";
       button.style.zindex = 100;
-      button.dataset.channnelTitle = title.innerText
+      button.dataset.channelTitle = title.innerText
 
       button.addEventListener("click", addBlockList, true);
 
@@ -23,7 +23,7 @@ window.onload = function () {
 function addBlockList(e) {
   this.parentNode.parentNode.parentNode.style.display = "none";
   const blockList = localStorage["blockList"].split(',');
-  localStorage["blockList"] = [...blockList,this.dataset.channnelTitle].join(',');
+  localStorage["blockList"] = [...blockList,this.dataset.channelTitle].join(',');
   e.preventDefault();
   return false;
 }
