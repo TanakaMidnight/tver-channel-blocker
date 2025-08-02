@@ -1,6 +1,4 @@
 // TVerの特定番組を非表示にするcontent script
-
-// TVerの特定番組を非表示にするcontent script
 (function() {
 
 
