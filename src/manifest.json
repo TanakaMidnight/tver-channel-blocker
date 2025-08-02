@@ -1,16 +1,20 @@
 {
-    "name": "TverChannelBlocker",
-    "version": "1.0.0",
-    "permissions": [
-        "storage",
-        "unlimitedStorage"
-      ],    
-    "manifest_version": 2,
-    "description": "Tverの特定の番組を非表示にするツールです。",
-    "content_scripts": [{
+  "manifest_version": 3,
+  "name": "TVer Channel Blocker",
+  "version": "1.0.0",
+  "description": "TVerの特定の番組を非表示にするChrome拡張機能です。",
+  "permissions": ["storage"],
+  "host_permissions": ["https://tver.jp/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
       "matches": ["https://tver.jp/*"],
-      "js": [
-        "content.js"
-      ]
-    }]
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
   }
+}
