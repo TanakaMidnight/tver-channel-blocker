@@ -12,7 +12,15 @@
   <h2>非表示にする番組名</h2>
   <input type="text" id="titleInput" placeholder="番組名を入力">
   <button id="addBtn">追加</button>
+  <input type="file" id="importInput" accept=".json,application/json" style="display:none">
   <ul id="blockList"></ul>
+  <div style="font-size:0.9em;color:#888;margin-top:8px;">
+    エクスポート: ブロックリストをJSONで保存<br>
+    インポート: JSONファイルからリストを復元
+  </div>
+  <button id="exportBtn">エクスポート</button>
+  <button id="importAddBtn">追加インポート</button>
+  <button id="importReplaceBtn">全置換インポート</button>
   <script src="popup.js"></script>
 </body>
 </html>
