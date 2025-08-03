@@ -1,8 +1,7 @@
 // popup.html用スクリプト
 
-const input = document.getElementById('titleInput');
-const addBtn = document.getElementById('addBtn');
 const blockList = document.getElementById('blockList');
+
 
 // エクスポート・インポート用UI追加
 let exportBtn = document.getElementById('exportBtn');
@@ -105,9 +104,12 @@ function renderList(titles) {
   blockList.innerHTML = '';
   titles.forEach((title, idx) => {
     const li = document.createElement('li');
-    li.textContent = title;
+    const span = document.createElement('span');
+    span.textContent = title;
+    span.style.flex = '1';
+    li.appendChild(span);
     const delBtn = document.createElement('button');
-    delBtn.textContent = '削除';
+    delBtn.textContent = '解除';
     delBtn.onclick = () => {
       titles.splice(idx, 1);
       chrome.storage.local.set({ blockedTitles: titles }, () => renderList(titles));
@@ -115,20 +117,11 @@ function renderList(titles) {
     li.appendChild(delBtn);
     blockList.appendChild(li);
   });
+  // 追加時に下まで自動スクロール
+  blockList.scrollTop = blockList.scrollHeight;
 }
 
 chrome.storage.local.get({ blockedTitles: [] }, ({ blockedTitles }) => {
   renderList(blockedTitles);
 });
 
-addBtn.onclick = () => {
-  const title = input.value.trim();
-  if (!title) return;
-  chrome.storage.local.get({ blockedTitles: [] }, ({ blockedTitles }) => {
-    if (!blockedTitles.includes(title)) {
-      blockedTitles.push(title);
-      chrome.storage.local.set({ blockedTitles }, () => renderList(blockedTitles));
-    }
-    input.value = '';
-  });
-};
