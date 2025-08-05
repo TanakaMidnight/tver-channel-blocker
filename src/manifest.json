@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "TVer Channel Blocker",
+  "name": "TVer Program Blocker",
   "version": "1.0.0",
   "description": "TVerの特定の番組を非表示にするChrome拡張機能です。",
   "permissions": ["storage"],

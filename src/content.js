@@ -84,7 +84,7 @@
       });
     } catch (e) {
       // Extension context invalidated などのエラー時は何もしない
-      //console.warn('tver-channel-blocker: context invalidated', e);
+      //console.warn('tver-program-blocker: context invalidated', e);
     }
   }
 
